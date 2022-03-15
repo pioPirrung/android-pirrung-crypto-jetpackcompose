@@ -1,4 +1,4 @@
-package de.pirrung.crypto.ui.theme
+package de.pirrung.crypto.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

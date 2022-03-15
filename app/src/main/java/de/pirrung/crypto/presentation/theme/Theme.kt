@@ -1,4 +1,4 @@
-package de.pirrung.crypto.ui.theme
+package de.pirrung.crypto.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
