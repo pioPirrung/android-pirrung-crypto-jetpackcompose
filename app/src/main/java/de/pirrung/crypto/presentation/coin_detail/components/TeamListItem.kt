@@ -18,11 +18,11 @@ fun TeamListItem(
     modifier: Modifier = Modifier
 ) {
     Column(modifier = modifier, verticalArrangement = Arrangement.Center) {
-        Text(text = teamMember.name, style = MaterialTheme.typography.h4)
+        Text(text = teamMember.name, style = MaterialTheme.typography.h6)
         Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = teamMember.position,
-            style = MaterialTheme.typography.body2,
+            style = MaterialTheme.typography.body1,
             fontStyle = FontStyle.Italic
         )
     }
