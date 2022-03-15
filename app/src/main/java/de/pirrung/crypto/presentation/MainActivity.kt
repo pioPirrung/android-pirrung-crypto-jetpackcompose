@@ -12,10 +12,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import de.pirrung.crypto.presentation.coin_detail.CoinDetailScreen
+import de.pirrung.crypto.presentation.coin_detail.CoinDetailViewModel
 import de.pirrung.crypto.presentation.coin_list.CoinListScreen
 import de.pirrung.crypto.presentation.theme.CryptoTheme
+import org.koin.androidx.compose.getViewModel
+import org.koin.core.parameter.parametersOf
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,7 +48,8 @@ class MainActivity : ComponentActivity() {
 
                             })
                         ) {
-                            CoinDetailScreen()
+                            val vm: CoinDetailViewModel =  getViewModel(parameters = { parametersOf(navController.currentBackStackEntry?.arguments) })
+                            CoinDetailScreen(vm)
                         }
                     }
                 }

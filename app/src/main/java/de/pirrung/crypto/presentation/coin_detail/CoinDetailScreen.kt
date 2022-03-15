@@ -25,7 +25,7 @@ import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun CoinDetailScreen(
-    viewModel: CoinDetailViewModel = getViewModel<CoinDetailViewModel>()
+    viewModel: CoinDetailViewModel
 ) {
     val state = viewModel.state.value
 
@@ -39,7 +39,7 @@ fun CoinDetailScreen(
                     ) {
                         Text(
                             text = "${coin.rank}. ${coin.name} (${coin.symbol})",
-                            style = MaterialTheme.typography.h2,
+                            style = MaterialTheme.typography.h5,
                             modifier = Modifier.weight(8f)
                         )
                         Text(
@@ -56,7 +56,7 @@ fun CoinDetailScreen(
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(text = coin.description, style = MaterialTheme.typography.body2)
                     Spacer(modifier = Modifier.height(15.dp))
-                    Text(text = "Tags", style = MaterialTheme.typography.h3)
+                    Text(text = "Tags", style = MaterialTheme.typography.h5)
                     Spacer(modifier = Modifier.height(15.dp))
                     FlowRow(
                         mainAxisSpacing = 10.dp,
@@ -68,7 +68,7 @@ fun CoinDetailScreen(
                         }
                     }
                     Spacer(modifier = Modifier.height(15.dp))
-                    Text(text = "Team members", style = MaterialTheme.typography.h3)
+                    Text(text = "Team members", style = MaterialTheme.typography.h5)
                     Spacer(modifier = Modifier.height(15.dp))
                 }
                 items(coin.team) { member ->

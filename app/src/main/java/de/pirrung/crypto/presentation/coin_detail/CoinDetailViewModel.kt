@@ -1,5 +1,6 @@
 package de.pirrung.crypto.presentation.coin_detail
 
+import android.os.Bundle
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
@@ -11,18 +12,21 @@ import de.pirrung.crypto.domain.use_case.get_coin_detail.GetCoinDetailsUseCase
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-class CoinDetailViewModel(
+class CoinDetailViewModel (
     private val getCoinDetailsUseCase: GetCoinDetailsUseCase,
-    savedStateHandle: SavedStateHandle
+    savedStateHandle: Bundle
 ) : ViewModel() {
 
     private val _state = mutableStateOf(CoinDetailState())
     val state: State<CoinDetailState> = _state
 
     init {
-        savedStateHandle.get<String>(Constants.COIN_ID)?.let { id ->
+        savedStateHandle.getString(Constants.COIN_ID)?.let { id ->
             getCoinDetail(id)
         }
+//        savedStateHandle.get<String>(Constants.COIN_ID)?.let { id ->
+//            getCoinDetail(id)
+//        }
     }
 
     private fun getCoinDetail(coinId: String) {

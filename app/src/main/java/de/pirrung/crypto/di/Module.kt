@@ -1,5 +1,6 @@
 package de.pirrung.crypto.di
 
+import android.os.Bundle
 import androidx.lifecycle.SavedStateHandle
 import de.pirrung.crypto.common.Constants
 import de.pirrung.crypto.data.remote.CoinPaprikaApi
@@ -21,16 +22,16 @@ val appModule = module {
 
     single<CoinRepository> { CoinRepositoryImpl(get()) }
 
-    single { GetCoinsUseCase(get()) }
+    single<GetCoinsUseCase> { GetCoinsUseCase(get()) }
 
-    single { GetCoinDetailsUseCase(get()) }
+    single<GetCoinDetailsUseCase> { GetCoinDetailsUseCase(get()) }
 
     viewModel {
         CoinListViewModel(get())
     }
 
-    viewModel { params ->
-        CoinDetailViewModel(get(), params.get())
+    viewModel { (bundle: Bundle) ->
+        CoinDetailViewModel(get(), bundle)
     }
 
 }
